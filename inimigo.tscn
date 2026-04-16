@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://crjjhl1uyo7g2"]
+
+[ext_resource type="Script" uid="uid://ceydv50ph2wik" path="res://inimigo.gd" id="1_0b8xr"]
+[ext_resource type="Texture2D" uid="uid://cs31ahwbbkiub" path="res://assets/Plataform Cute/Enemies/Sheet/Squeletron2-Sheet.png" id="1_030df"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b8xr"]
+atlas = ExtResource("1_030df")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g45jm"]
+atlas = ExtResource("1_030df")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enrbn"]
+atlas = ExtResource("1_030df")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0fh3"]
+atlas = ExtResource("1_030df")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o83ti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b8xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g45jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enrbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0fh3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cs1f"]
+size = Vector2(12, 18.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekwcj"]
+size = Vector2(13.5, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eewpo"]
+size = Vector2(10, 5.5)
+
+[node name="inimigo" type="CharacterBody2D" unique_id=487997591]
+z_index = 2
+script = ExtResource("1_0b8xr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=102335295]
+sprite_frames = SubResource("SpriteFrames_o83ti")
+frame_progress = 0.9174358
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=837872346]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_5cs1f")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=750592035]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1582809893]
+z_index = 1
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_ekwcj")
+debug_color = Color(0.998764, 0.032764312, 1.347661e-06, 0.41960785)
+
+[node name="HeadHitbox" type="Area2D" parent="." unique_id=1219144860]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadHitbox" unique_id=726405786]
+z_index = 1
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_eewpo")
+debug_color = Color(0, 0.6478428, 0.20833522, 0.41960785)

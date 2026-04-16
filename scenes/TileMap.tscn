@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://clo2kwdtnt4sn"]
+[gd_scene format=3 uid="uid://bkdfuixvvqfgv"]
 
-[ext_resource type="Texture2D" uid="uid://b1w6o6kolyx5c" path="res://assets/Plataform Cute/Tileset/Frozen Ground 32x32.png" id="1_q0yem"]
-[ext_resource type="Texture2D" uid="uid://dxmhs65rnu3nv" path="res://assets/Plataform Cute/Tileset/Ground 32x32.png" id="2_j60hp"]
+[ext_resource type="Texture2D" uid="uid://b1w6o6kolyx5c" path="res://assets/Plataform Cute/Tileset/Frozen Ground 32x32.png" id="1_5qgmc"]
+[ext_resource type="Texture2D" uid="uid://dxmhs65rnu3nv" path="res://assets/Plataform Cute/Tileset/Ground 32x32.png" id="2_vcbll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
-texture = ExtResource("1_q0yem")
+texture = ExtResource("1_5qgmc")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 1:0/0 = 0
@@ -135,7 +135,7 @@ texture = ExtResource("1_q0yem")
 7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6r6c"]
-texture = ExtResource("2_j60hp")
+texture = ExtResource("2_vcbll")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 1:0/0 = 0
@@ -271,7 +271,7 @@ physics_layer_0/collision_mask = 255
 sources/0 = SubResource("TileSetAtlasSource_0hol4")
 sources/1 = SubResource("TileSetAtlasSource_q6r6c")
 
-[node name="Node2D" type="Node2D" unique_id=1606503868]
+[node name="TileMap" type="Node2D" unique_id=1606503868]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=181339667]
 tile_set = SubResource("TileSet_kdubu")

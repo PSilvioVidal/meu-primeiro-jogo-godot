@@ -1,6 +1,30 @@
 [gd_scene format=3 uid="uid://dk7kc7xegwcu3"]
 
 [ext_resource type="Texture2D" uid="uid://cd2wwjaj7qc28" path="res://assets/Plataform Cute/Character/Character Example/Sheet/Kevin Idle-Sheet.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://foqxw41g6b6u" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://b8p886kvtddlq" path="res://assets/Plataform Cute/Character/Character Example/Sheet/Kevin Damage Dead-Sheet.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://carl3iurr2p5q" path="res://assets/Plataform Cute/Character/Character Example/Sheet/Kevin jump fall-Sheet.png" id="4_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://dlcuhq7n74muv" path="res://assets/Plataform Cute/Character/Character Example/Sheet/Kevin walk-Sheet.png" id="5_fjrip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(0, 0, 45, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(45, 0, 45, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(90, 0, 45, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(0, 37, 45, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(45, 37, 45, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -18,11 +42,46 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("1_3vyb7")
 region = Rect2(32, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("4_tuyoq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("4_tuyoq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("5_fjrip")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("5_fjrip")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("5_fjrip")
+region = Rect2(0, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}],
+"loop": false,
+"name": &"dead",
 "speed": 5.0
 }, {
 "frames": [{
@@ -41,16 +100,49 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ls1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfm1y")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
 }]
 
-[node name="Player" type="Node2D" unique_id=2014270405]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
+size = Vector2(18, 23)
+
+[node name="Player" type="CharacterBody2D" unique_id=17501185]
+z_index = 1
 position = Vector2(-5, 0)
+collision_mask = 2
+script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=690310019]
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"idle"
-frame_progress = 0.28584865
+animation = &"dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1655807906]
+z_index = 1
+position = Vector2(-8, 4)
+shape = SubResource("RectangleShape2D_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=349152670]

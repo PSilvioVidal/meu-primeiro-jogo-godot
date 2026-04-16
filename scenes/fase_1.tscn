@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cspxiswmilbom"]
+
+[ext_resource type="PackedScene" uid="uid://bkdfuixvvqfgv" path="res://scenes/TileMap.tscn" id="1_ugoy3"]
+[ext_resource type="PackedScene" uid="uid://dk7kc7xegwcu3" path="res://scenes/player.tscn" id="2_u5pyp"]
+[ext_resource type="PackedScene" uid="uid://crjjhl1uyo7g2" path="res://inimigo.tscn" id="3_u5pyp"]
+
+[node name="Fase1" type="Node2D" unique_id=806038245]
+position = Vector2(-2, -2)
+
+[node name="Node2D" parent="." unique_id=1606503868 instance=ExtResource("1_ugoy3")]
+position = Vector2(-17, -19)
+
+[node name="Player" parent="." unique_id=2014270405 instance=ExtResource("2_u5pyp")]
+position = Vector2(253, 379)
+
+[node name="inimigo" parent="." unique_id=1494309079 instance=ExtResource("3_u5pyp")]
+position = Vector2(317, 474)
